@@ -65,6 +65,17 @@
         NSString * str=[tv.text stringByAppendingString:btn.titleLabel.text];
         tv.text=str;
         keyboard.label.text=[NSString stringWithFormat:@"%lu位",(unsigned long)tv.text.length];
+        
+        if (tv.text.length==17) {
+            if ([self judgeVIN]) {
+                
+            }else{
+                keyboard.label.text=[NSString stringWithFormat:@"not fit"];
+            }
+        }
+
+    }else{
+        
     }
 }
 
@@ -104,6 +115,41 @@
     [_player play];
 }
 
+-(BOOL)judgeVIN
+{
+    
+    NSMutableDictionary * weights=[NSMutableDictionary dictionaryWithDictionary:@{@"1":@"8",@"2":@"7",@"3":@"6",@"4":@"5",@"5":@"4",@"6":@"3",@"7":@"2",@"8":@"10",@"9":@"0",@"10":@"9",@"11":@"8",@"12":@"7",@"13":@"6",@"14":@"5",@"15":@"4",@"16":@"3",@"17":@"2"}];
+    NSMutableDictionary * values=[NSMutableDictionary dictionaryWithDictionary:@{@"0":@"0",@"1":@"1",@"2":@"2",@"3":@"3",@"4":@"4",@"5":@"5",@"6":@"6",@"7":@"7",@"8":@"8",@"9":@"9",@"A":@"1",@"B":@"2",@"C":@"3",@"D":@"4",@"E":@"5",@"F":@"6",@"G":@"7",@"H":@"8",@"J":@"1",@"K":@"2",@"M":@"4",@"L":@"3",@"N":@"5",@"P":@"7",@"R":@"9",@"S":@"2",@"T":@"3",@"U":@"4",@"V":@"5",@"W":@"6",@"X":@"7",@"Y":@"8",@"Z":@"9"}];
+    
+    
+    if ([tv.text containsString:@"I"]||[tv.text containsString:@"O"]) {
+        return NO;
+    }else{
+        int sum=0;
+        for (int i=0; i<tv.text.length; i++) {
+            int value=[values[[NSString stringWithFormat:@"%@",[tv.text substringWithRange:NSMakeRange(i, 1)]]] intValue];
+            int weight=[weights[[NSString stringWithFormat:@"%d",i+1]] intValue];
+            
+            sum+=value*weight;
+        }
+        if (sum % 11 == 10) {
+            if ([tv.text characterAtIndex:8] == 'X') {
+                return YES;
+            } else {
+                return NO;
+            }
+            
+        } else {
+            if (sum % 11 != [values[[NSString stringWithFormat:@"%@",[tv.text substringWithRange:NSMakeRange(8, 1)]]] intValue]) {
+                return NO;
+            } else {
+                return YES;
+            }
+        }
+    }
+    
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning {

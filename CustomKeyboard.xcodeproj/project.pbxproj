@@ -374,7 +374,7 @@
 					4ED04E641ED2D7080018DB26 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = TQDEX3W4J6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					4ED04E7D1ED2D7090018DB26 = {
 						CreatedOnToolsVersion = 8.3;
@@ -642,8 +642,10 @@
 				DEVELOPMENT_TEAM = TQDEX3W4J6;
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uqiauto..CustomKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uqiauto.vinkeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "848986e1-c43e-46ea-b205-9568e403d261";
+				PROVISIONING_PROFILE_SPECIFIER = apptest;
 			};
 			name = Debug;
 		};
@@ -651,11 +653,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TQDEX3W4J6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.uqiauto..CustomKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uqiauto.vinkeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -728,6 +731,7 @@
 				4ED04E941ED2D7090018DB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED04E951ED2D7090018DB26 /* Build configuration list for PBXNativeTarget "CustomKeyboardTests" */ = {
 			isa = XCConfigurationList;
@@ -736,6 +740,7 @@
 				4ED04E971ED2D7090018DB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED04E981ED2D7090018DB26 /* Build configuration list for PBXNativeTarget "CustomKeyboardUITests" */ = {
 			isa = XCConfigurationList;
@@ -744,6 +749,7 @@
 				4ED04E9A1ED2D7090018DB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
